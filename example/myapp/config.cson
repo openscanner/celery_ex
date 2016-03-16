@@ -2,5 +2,6 @@
 # celery config
 celery:
     "BROKER_URL": "redis://localhost:6379/1",
+    BROKER_TRANSPORT_OPTIONS : { fanout_prefix: true}
     "CELERY_RESULT_BACKEND": "mongodb://localhost:27017/celery_test",
     "CELERY_ENABLE_UTC": true,

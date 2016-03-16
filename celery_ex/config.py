@@ -64,7 +64,7 @@ class Config(object):
         return self._config.get(module)
 
     def pop(self, module):
-        return self._config.pop(module)
+        return self._config.pop(module, {})
 
     def get_opt(self, module):
         return self._opt.get(module)
