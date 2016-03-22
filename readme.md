@@ -4,6 +4,7 @@
 
 1. 配置支持从配置文件读取(json/cson)格式 - (如果用 docker, 直接利用 celery 本身支持的环境变量也是个好方法)
 
+add function to reading configuration from json/cson format.
 
 ## install
 ```pip install https://github.com/openscanner/celery_ex/zipball/master```
@@ -16,6 +17,7 @@ from celery import Celery
 app = Celery(
     'tasks',
     loader="celery_ex.loader:AppExLoader", # change default AppLoader
+    changes=celery_config,  # as default config
 )
 
 
@@ -28,3 +30,6 @@ Now: celery configuration file support cson/json file, you could used as below:
 ```sh
 celery -A app worker -l debug --config=config.cson
 ```
+
+
+PS: tox not tested!

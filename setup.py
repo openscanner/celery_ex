@@ -15,7 +15,7 @@ if sys.version_info < (2, 6):
 # -*- Distribution Meta -*-
 
 re_meta = re.compile(r'__(\w+?)__\s*=\s*(.*)')
-re_vers = re.compile(r'VERSION\s*=.*?\((.*?)\)')
+re_vers = re.compile(r"^VERSION\s*=\s*'.*'")
 re_doc = re.compile(r'^"""(.+?)"""')
 
 
@@ -29,8 +29,8 @@ def add_default(m):
 
 
 def add_version(m):
-    v = list(map(rq, m.groups()[0].split(', ')))
-    return (('VERSION', '.'.join(v[0:3]) + ''.join(v[3:])),)
+    v = m.group().split("'")[1]
+    return (('VERSION', v),)
 
 
 def add_doc(m):
