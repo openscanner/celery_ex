@@ -69,13 +69,4 @@ setup(
     license='BSD',
     packages=find_packages(exclude=['tests', 'tests.*', 'example', 'example.*'], include=['celery_ex', 'celery_ex.*']),
     install_requires=install_requires,
-
-    #    entry_points={
-    #        'console_scripts': [
-    #            'flower = flower.__main__:main',
-    #        ],
-    #        'celery.commands': [
-    #            'flower = flower.command:FlowerCommand',
-    #        ],
-    #    },
 )
